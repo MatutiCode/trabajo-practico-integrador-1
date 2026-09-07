@@ -1,4 +1,4 @@
-import { DataTypes, dataTypes } from "sequelize";
+import { DataTypes } from "sequelize";
 import { sequelize } from "../config/db.js"
 
 export const User = sequelize.define(
@@ -10,21 +10,21 @@ export const User = sequelize.define(
             autoIncrement: true,
         },
         username: {
-            type: dataTypes.STRING(20),
+            type: DataTypes.STRING(20),
             allowNull: false,
             unique: true,
         },
         email: {
-            type: dataTypes.STRING(100),
+            type: DataTypes.STRING(100),
             allowNull: false,
             unique: true,
         },
         password: {
-            type: dataTypes.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false,
         },
         role: {
-            type: dataTypes.ENUM("user", "admin"),
+            type: DataTypes.ENUM("user", "admin"),
             allowNull: false,
             defaultValue: "user",
         },

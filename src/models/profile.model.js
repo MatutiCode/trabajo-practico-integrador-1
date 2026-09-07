@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/db.js";
+import { User } from "./user.model.js";
 
 export const Profile = sequelize.define(
     "Profile",
@@ -30,7 +31,7 @@ export const Profile = sequelize.define(
             type: DataTypes.STRING(255),
             allowNull: true,
         },
-        birth_data: {
+        birth_date: {
             type: DataTypes.DATEONLY,
             allowNull: true,
         },
@@ -41,3 +42,6 @@ export const Profile = sequelize.define(
         timestamps: true,
     }
 );
+
+User.hasOne(Profile, { foreignKey: "user_id", as: "profile"});
+Profile.belongsTo(User, { foreignKey: "user_id", as: "user"});
