@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import authRoutes from "./routes/auth.routes.js"
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ app.get("/api/health", (req, res) => {
     .status(200)
     .json({ status: "ok", message: "API funcionando correctamente" });
 });
+
+app.use("/api/auth", authRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Recurso no encontrado" });

@@ -31,7 +31,7 @@ export const User = sequelize.define(
 
     },
     {
-        tableName: "Users",
+        tableName: "users",
         underscored: true,
         paranoid: true,
         timestamps: true,
