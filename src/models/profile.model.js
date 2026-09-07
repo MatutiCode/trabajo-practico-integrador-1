@@ -1,0 +1,43 @@
+import { DataTypes } from "sequelize";
+import { sequelize } from "../config/db.js";
+
+export const Profile = sequelize.define(
+    "Profile",
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            unique: true,
+        },
+        first_name: {
+            type: DataTypes.STRING(50),
+            allowNull: true,
+        },
+        last_name: {
+            type: DataTypes.STRING(50),
+            allowNull: true,
+        },
+        biography: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+        avatar_url: {
+            type: DataTypes.STRING(255),
+            allowNull: true,
+        },
+        birth_data: {
+            type: DataTypes.DATEONLY,
+            allowNull: true,
+        },
+    },
+    {
+        tableName: "profiles",
+        underscored: true,
+        timestamps: true,
+    }
+);
