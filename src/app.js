@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-import authRoutes from "./routes/auth.routes.js"
+import authRoutes from "./routes/auth.routes.js";
+import tagRoutes from "./routes/tag.routes.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/tags", tagRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Recurso no encontrado" });
