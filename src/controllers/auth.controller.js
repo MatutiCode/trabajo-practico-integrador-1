@@ -69,8 +69,10 @@ export const getProfile = async (req, res) => {
         return res.status(500).json({ message: "error al obtener el perfil", error: error.message});
     }
 
-    export const logout = (req, res) => {
+    
+};
+
+export const logout = (req, res) => {
   res.clearCookie("token");
   return res.status(200).json({ message: "Logout exitoso" });
-};
 };
